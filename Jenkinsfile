@@ -56,5 +56,6 @@ pipeline {
         echo "Running Image..."
         // sh "docker run -d --rm --log-driver=gelf --log-opt gelf-address=${LOGSTASH_URI} --network=${SERVICE_TEST_NETWORK} --name=${SERVICE_NAME} --publish=${SERVICE_PORT}:${SERVICE_PORT} --volume=${SERVICE_NAME}-vol:/var/lib/${SERVICE_NAME}/${SERVICE_NAME}-vol ${SERVICE_NAME}:latest"
         } 
+        }
     }
 }
