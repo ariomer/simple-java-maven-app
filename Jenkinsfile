@@ -16,18 +16,11 @@ pipeline {
                 }
             }
         }
-        stage('Quality Gate') {
-            withSonarQubeEnv() {
-                while ((sonarResultStatus == "PENDING" || sonarResultStatus == "IN_PROGRESS") && tries++ < 5) {
-                try {
-                    sonarResult = waitForQualityGate abortPipeline: true
-                    sonarResultStatus = sonarResult.status
-                } catch(ex) {
-                    echo "caught exception ${ex}"
-                } finally {
-                    sonarResultStatus = 'OK'
-                }
-                }
+        stage("Quality gate") {
+            steps {
+				timeout(time: 1, unit: 'HOURS'){
+                waitForQualityGate abortPipeline: true
+				}
             }
         }
     }
