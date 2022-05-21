@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('SCM') {
             steps {
-                git branch: 'main', url: 'https://github.com/ariomer/simple-java-maven-app.gite'
+                git branch: 'main', url: 'https://github.com/ariomer/simple-java-maven-app.git'
             }
         }
         stage('build && SonarQube analysis') {
