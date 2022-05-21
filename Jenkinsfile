@@ -30,13 +30,13 @@ pipeline {
                 }
             }
         }
-        if (sonarResultStatus != 'OK') {  
-        error "Quality gate failure for SonarQube: ${sonarResultStatus}"
-        } 
-        else {
+        //if (sonarResultStatus != 'OK') {  
+        //error "Quality gate failure for SonarQube: ${sonarResultStatus}"
+        //} 
+        //else {
     
-                echo "waitForQualityGate status is ${sonarResultStatus} (tries=${tries})"
-                echo 'Quality Gate: SUCCESS'
+                //echo "waitForQualityGate status is ${sonarResultStatus} (tries=${tries})"
+                //echo 'Quality Gate: SUCCESS'
 
                 stage('Build Gradle') {
                     echo "Build Project ..."
